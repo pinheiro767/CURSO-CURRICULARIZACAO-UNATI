@@ -1,62 +1,81 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#311b92" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#111827" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="NeuroGames" />
-  <title>NeuroGames UNATI — Curso PWA</title>
+  <title>NeuroGames Academy | Semana 2 Canva</title>
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="bg-orbs" aria-hidden="true"><span></span><span></span><span></span></div>
-
-  <header class="hero">
-    <nav class="topbar">
-      <div class="brand"><img src="assets/icons/icon.svg" alt=""/><span>NeuroGames</span></div>
-      <button id="installBtn" class="ghost hidden">Instalar app</button>
-    </nav>
-    <section class="hero-grid">
-      <div>
-        <p class="eyebrow">Medicina • Neuroanatomia • UNATI • PWA</p>
-        <h1>Curso guiado para criar jogos digitais de Neuroanatomia</h1>
-        <p class="lead">As aulas abrem por semana. Hoje a Semana 2 trabalha Canva como protótipo visual do futuro aplicativo.</p>
-        <div class="hero-actions">
-          <a class="primary" href="#semanas">Abrir semanas</a>
-          <button class="secondary" id="resetProgress">Resetar progresso</button>
+  <div class="aurora"></div>
+  <div class="app-shell">
+    <header class="hero">
+      <nav class="topbar">
+        <div class="brand"><span class="brand-icon">🧠</span><span>NeuroGames Academy</span></div>
+        <button id="installBtn" class="pill hidden">Instalar app</button>
+      </nav>
+      <section class="hero-grid">
+        <div>
+          <p class="eyebrow">Neuroanatomia • Medicina • UNATI</p>
+          <h1>Semana 2: Canva com prompts passo a passo</h1>
+          <p class="subtitle">Aula de hoje e amanhã: <strong>16 e 17 de junho</strong>. Cada grupo vai transformar a escolha da Semana 1 em um protótipo visual que será usado nas próximas semanas para montar o PWA no GitHub.</p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#semana2">Começar aula de hoje</a>
+            <button class="ghost-btn" id="resetProgress">Resetar progresso</button>
+          </div>
         </div>
-      </div>
-      <div class="neuro-card">
-        <img class="interactive-img" src="assets/img/brain-interactive.svg" alt="Cérebro interativo" data-tip="Clique nas imagens do curso para revelar dicas de neurodesign." />
-        <div class="tip" id="globalTip">Toque no cérebro para ver uma dica.</div>
-      </div>
-    </section>
-  </header>
+        <button class="brain-card" id="brainCard" aria-label="Abrir explicação interativa">
+          <div class="brain-orbit"><span></span><span></span><span></span></div>
+          <div class="brain-emoji">🧠</div>
+          <p>Toque para ver como o Canva vira PWA</p>
+        </button>
+      </section>
+    </header>
 
-  <main>
-    <section class="panel" id="grupos">
-      <div class="section-title"><p>Turmas e jogos</p><h2>Distribuição correta dos grupos</h2></div>
-      <div class="group-grid">
-        <article class="mini-card"><h3>Turma da terça</h3><ul><li>Grupo I — Cartas</li><li>Grupo II — Quiz</li><li>Grupo III — Sudoku</li><li>Grupo IV — Palavras Cruzadas</li><li>Grupo V — Bolhas</li></ul></article>
-        <article class="mini-card"><h3>Turma da quarta</h3><ul><li>Grupo I — Cartas</li><li>Grupo II — Palavras Cruzadas</li><li>Grupo III — Bolhas</li><li>Grupo IV — Quiz</li></ul></article>
-      </div>
-    </section>
+    <main>
+      <section class="panel roadmap" id="roadmap">
+        <div class="section-head">
+          <div><p class="eyebrow">Percurso completo</p><h2>9 semanas até o aplicativo PWA</h2></div>
+          <div class="xp"><span id="xpValue">0</span> XP</div>
+        </div>
+        <div class="weeks-grid" id="weeksGrid"></div>
+      </section>
 
-    <section class="panel" id="semanas">
-      <div class="section-title"><p>Roteiro do curso</p><h2>9 semanas até o PWA no GitHub</h2></div>
-      <div id="weeksNav" class="weeks-nav"></div>
-      <div id="weekContent" class="week-content"></div>
-    </section>
-  </main>
+      <section class="panel today" id="semana2">
+        <div class="section-head sticky-head">
+          <div><p class="eyebrow">Missão ativa</p><h2>Semana 2 — Oficina Canva</h2><p class="micro">Abra uma missão por vez. Copie o prompt, faça no Canva, marque o checklist e avance.</p></div>
+          <div class="progress-ring"><span id="missionProgress">0/8</span></div>
+        </div>
 
-  <footer>
-    <p>NeuroGames UNATI — aplicativo PWA responsivo para Android e iPhone.</p>
-  </footer>
+        <div class="class-alert">
+          <strong>Importante:</strong> hoje não é “fazer capa bonita”. Hoje é construir o <strong>protótipo visual do aplicativo</strong>. Esse material será usado na Semana 3 para organizar assets, perguntas, imagens, sons e estrutura do jogo.
+        </div>
 
+        <div class="groups-box">
+          <button class="tab active" data-turma="terca">Turma de terça</button>
+          <button class="tab" data-turma="quarta">Turma de quarta</button>
+          <div id="groupList" class="group-list"></div>
+        </div>
+
+        <div class="missions" id="missions"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal hidden" id="modal">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Prompt copiado!</div>
   <script src="app.js"></script>
 </body>
 </html>
